@@ -33,7 +33,7 @@ Feature: Allocate points to users, need to manage levels and assign skills to co
       | admin    | C1 | manager          |   0         |     0     |
       | admin    | C2 | manager          |   0         |     0     |
     And I log in as "admin"
-    And I am on "Course 1" course homepage
+    And I am on the "Course 1" course homepage
     And I navigate to "Course completion" in current page administration
     And I expand all fieldsets
     And I set the field "Test page1" to "1"
@@ -64,7 +64,7 @@ Feature: Allocate points to users, need to manage levels and assign skills to co
     And I am on the "student1" "user > profile" page
     Then I should see "Skills earned"
     And I should see "Earned: 0"
-    And I am on "Course 1" course homepage
+    And I am on the "Course 1" course homepage
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
@@ -85,7 +85,7 @@ Feature: Allocate points to users, need to manage levels and assign skills to co
     And I am on the "student1" "user > profile" page
     Then I should see "Skills earned"
     And I should see "Earned: 0"
-    And I am on "Course 1" course homepage
+    And I am on the "Course 1" course homepage
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page

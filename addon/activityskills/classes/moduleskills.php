@@ -219,7 +219,7 @@ class moduleskills extends \tool_skills\allocation_method {
 
         require_once($CFG->dirroot . '/lib/completionlib.php');
 
-        $completion = new completion_info($this->get_course());
+        $completion = new \completion_info($this->get_course());
 
         if (!$completion->is_enabled()) {
             return null;
