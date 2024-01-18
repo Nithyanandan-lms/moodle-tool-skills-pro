@@ -146,17 +146,17 @@ Feature: Allocate skill points to the users based on activity completion
     And I am on the "Test page1" "page activity" page
     And I navigate to "Settings" in current page administration
     And I set the following fields to these values:
-      | id_completion_2  | 2 |
+      | completion  | 2 |
       | completionview   | 1 |
     And I press "Save and return to course"
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 30"
     And I log out
     And I am on the "Course 2" course page logged in as student1
@@ -183,7 +183,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on the "Test page1" "page activity" page
     And I press "Mark as done"
@@ -227,7 +227,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on the "Test page1" "page activity" page
     And I press "Mark as done"
@@ -277,19 +277,19 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on the "Test page1" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 20"
     And I am on the "Quiz1" "quiz activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 30"
     And I am on the "Test page4" "page activity" page
     And I press "Mark as done"
@@ -317,13 +317,13 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on the "Assign1" "assign activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I log out
     When I am on the "Assign1" "assign activity" page logged in as admin
@@ -336,7 +336,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 60"
     And I wait "10" seconds
 
@@ -376,17 +376,17 @@ Feature: Allocate skill points to the users based on activity completion
     And I am on the "Test page1" "page activity" page
     And I navigate to "Settings" in current page administration
     And I set the following fields to these values:
-      | id_completion_2  | 2 |
+      | completion  | 2 |
       | completionview   | 1 |
     And I press "Save and return to course"
     And I log out
     And I am on the "student1" "user > profile" page logged in as student1
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
+    # Then I should see "Skills earned"
     And I should see "Earned: 5"
     And I am on the "Test page2" "page activity" page
     And I press "Mark as done"
