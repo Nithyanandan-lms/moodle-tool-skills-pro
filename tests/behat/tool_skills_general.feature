@@ -122,7 +122,7 @@ Feature: Configuring the tool_skills plugin on the "Skills" page, applying diffe
     And I click on ".skill-item-actions .action-delete" "css_element" in the "critical-thinker" "table_row"
     And I should see "delete" message confirmation
     And I navigate to confirmation
-    Then I am on the  "Course 1" course homepage
+    Then I am on the "Course 1" course homepage
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
     And I should not see "Critical thinker"
