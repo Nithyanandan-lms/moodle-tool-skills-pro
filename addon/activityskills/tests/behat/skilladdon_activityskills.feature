@@ -149,7 +149,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I set the student view to complete the activity condition
     And I press "Save and return to course"
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 0"
+    And I should see "Points to complete this skill: 60 (Earned: 0)"
     And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"
