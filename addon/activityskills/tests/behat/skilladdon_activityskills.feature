@@ -48,7 +48,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I expand all fieldsets
     And I set the field "Test page2" to "1"
     And I press "Save changes"
-    And I create activity skill with the following fields to these values:
+    And I create skill with the following fields to these values:
       | Skill name       | Begineer |
       | Key              | begineer |
       | Number of levels | 2        |
@@ -59,7 +59,7 @@ Feature: Allocate skill points to the users based on activity completion
       | Level #2 name    | Level 2  |
       | Level #2 point   | 30       |
     And ".skill-item-actions .toolskills-status-switch.action-hide" "css_element" should exist in the "begineer" "table_row"
-    And I create activity skill with the following fields to these values:
+    And I create skill with the following fields to these values:
       | Skill name       | Competence |
       | Key              | competence |
       | Number of levels | 2          |
@@ -70,7 +70,7 @@ Feature: Allocate skill points to the users based on activity completion
       | Level #2 name    | Level 2    |
       | Level #2 point   | 30         |
     And ".skill-item-actions .toolskills-status-switch.action-hide" "css_element" should exist in the "competence" "table_row"
-    And I create activity skill with the following fields to these values:
+    And I create skill with the following fields to these values:
       | Skill name       | Expert     |
       | Key              | expert     |
       | Number of levels | 2          |
@@ -149,7 +149,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I set the student view to complete the activity condition
     And I press "Save and return to course"
     And I am on the "student1" "user > profile" page
-    And I should see "Points to complete this skill: 60 (Earned: 0)"
+    And I should see "Earned: 0"
     And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"

@@ -36,22 +36,6 @@ use Behat\Gherkin\Node\{TableNode, PyStringNode};
 class behat_skilladdon_activityskills extends behat_base {
 
     /**
-     * Fills a skills to create form with field/value data.
-     *
-     * @Given /^I create activity skill with the following fields to these values:$/
-     * @throws ElementNotFoundException Thrown by behat_base::find
-     * @param TableNode $data
-     */
-    public function i_create_activity_skill_with_the_following_fields_to_these_values(TableNode $data) {
-
-        $this->execute('behat_navigation::i_navigate_to_in_site_administration',
-            ["Plugins > Admin tools > Skills"]);
-        $this->execute("behat_general::i_click_on", ["Create skill", "button"]);
-        $this->execute('behat_forms::i_set_the_following_fields_to_these_values', [$data]);
-        $this->execute("behat_general::i_click_on", ["Save changes", "button"]);
-    }
-
-    /**
      * Set the student view to complete the activity condition.
      * @Given I set the student view to complete the activity condition
      */
