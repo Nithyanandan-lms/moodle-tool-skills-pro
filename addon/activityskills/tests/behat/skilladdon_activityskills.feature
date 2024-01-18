@@ -36,14 +36,14 @@ Feature: Allocate skill points to the users based on activity completion
       | admin    | C1 | manager          |   0         |     0     |
       | admin    | C2 | manager          |   0         |     0     |
     And I log in as "admin"
-    And I am on the "Course 1" course homepage
+    And I am on "Course 1" course homepage
     And I navigate to "Course completion" in current page administration
     And I expand all fieldsets
     And I set the field "Test page1" to "1"
     And I set the field "Quiz1" to "1"
     And I set the field "Test page4" to "1"
     And I set the field "Assign1" to "1"
-    And I am on the "Course 2" course homepage
+    And I am on "Course 2" course homepage
     And I navigate to "Course completion" in current page administration
     And I expand all fieldsets
     And I set the field "Test page2" to "1"
@@ -152,7 +152,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I am on the "student1" "user > profile" page
     Then I should see "Skills earned"
     And I should see "Earned: 0"
-    And I am on the "Course 1" course homepage
+    And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"
     And I am on the "student1" "user > profile" page

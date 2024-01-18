@@ -37,14 +37,14 @@ Feature: Configuring the tool_skills plugin on the "Skills" page, applying diffe
       | Level #0 name   | begineer |
       | Level #0 point  | 10       |
     And ".skill-item-actions .custom-control-input:checked" "css_element" should exist in the "begineer" "table_row"
-    Then I am on the "Course 1" course homepage
+    Then I am on "Course 1" course homepage
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
     Then I should see "Begineer"
     And I navigate to skills
     And I click on ".skill-item-actions .toolskills-status-switch" "css_element" in the "begineer" "table_row"
     And ".skill-item-actions .toolskills-status-switch.action-show" "css_element" should exist in the "begineer" "table_row"
-    Then I am on the "Course 1" course homepage
+    Then I am on "Course 1" course homepage
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
     Then I should not see "Begineer"
@@ -111,7 +111,7 @@ Feature: Configuring the tool_skills plugin on the "Skills" page, applying diffe
       | Key             | critical-thinker |
       | Level #0 name   | begineer |
       | Level #0 point  | 20       |
-    Then I am on the "Course 1" course homepage
+    Then I am on "Course 1" course homepage
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
     Then I should see "Critical thinker"
@@ -144,7 +144,7 @@ Feature: Configuring the tool_skills plugin on the "Skills" page, applying diffe
       | Level #2 name | Level 2 |
       | Level #3 name | Level 3 |
     And I press "Save changes"
-    Then I am on the "Course 1" course homepage
+    Then I am on "Course 1" course homepage
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
     And I should see "Begineer"
