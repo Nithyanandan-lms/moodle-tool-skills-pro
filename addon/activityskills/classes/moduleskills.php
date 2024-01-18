@@ -227,36 +227,38 @@ class moduleskills extends \tool_skills\allocation_method {
 
         // Get the number of modules that support completion.
         $modulecompletion = $completion->get_completion_data($cmid, $userid, []);
-        if (isset($modulecompletion['completionstate']) && $modulecompletion['completionstate'] == COMPLETION_COMPLETE) {
-            $modskills = $this->get_instance_skills();
-            foreach ($modskills as $modskillid => $skillobj) {
-                // Create a skill course module record instance for this skill.
-                $this->set_skill_instance($modskillid);
-                $data = $this->build_data();
+        if ($modulecompletion) {
+            if (isset($modulecompletion['completionstate']) && $modulecompletion['completionstate'] == COMPLETION_COMPLETE) {
+                $modskills = $this->get_instance_skills();
+                foreach ($modskills as $modskillid => $skillobj) {
+                    // Create a skill course module record instance for this skill.
+                    $this->set_skill_instance($modskillid);
+                    $data = $this->build_data();
 
-                $transaction = $DB->start_delegated_transaction();
+                    $transaction = $DB->start_delegated_transaction();
 
-                switch ($data->uponmodcompletion) {
+                    switch ($data->uponmodcompletion) {
 
-                    case skills::COMPLETIONPOINTS:
-                        $skillobj->increase_points($this, $data->points, $userid);
-                        break;
+                        case skills::COMPLETIONPOINTS:
+                            $skillobj->increase_points($this, $data->points, $userid);
+                            break;
 
-                    case skills::COMPLETIONSETLEVEL:
-                        $skillobj->moveto_level($this, $data->level, $userid);
-                        break;
+                        case skills::COMPLETIONSETLEVEL:
+                            $skillobj->moveto_level($this, $data->level, $userid);
+                            break;
 
-                    case skills::COMPLETIONFORCELEVEL:
-                        $skillobj->force_level($this, $data->level, $userid);
-                        break;
+                        case skills::COMPLETIONFORCELEVEL:
+                            $skillobj->force_level($this, $data->level, $userid);
+                            break;
 
-                    case skills::COMPLETIONPOINTSGRADE:
-                        $gradepoint = self::get_grade_point($data->modid, $userid);
-                        $skillobj->increase_points($this, $gradepoint, $userid);
-                        break;
+                        case skills::COMPLETIONPOINTSGRADE:
+                            $gradepoint = self::get_grade_point($data->modid, $userid);
+                            $skillobj->increase_points($this, $gradepoint, $userid);
+                            break;
+                    }
+
+                    $transaction->allow_commit();
                 }
-
-                $transaction->allow_commit();
             }
         }
     }
