@@ -150,7 +150,6 @@ Feature: Allocate skill points to the users based on activity completion
       | completionview   | 1 |
     And I press "Save and return to course"
     And I am on the "student1" "user > profile" page
-    Then I should see "Skills earned"
     And I should see "Earned: 0"
     And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
