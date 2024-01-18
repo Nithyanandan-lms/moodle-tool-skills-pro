@@ -107,7 +107,7 @@ class module_skills_table extends \table_sql {
 
         $from = '{tool_skills} s
         LEFT JOIN {tool_skills_course_activity} sa ON sa.skill = s.id AND sa.courseid = :courseid AND sa.modid = :modid
-        LEFT JOIN {tool_skills_courses} sc ON sc.skill = s.id AND sc.courseid = "'.$this->courseid.'"';
+        LEFT JOIN {tool_skills_courses} sc ON sc.skill = s.id AND sc.courseid = '.$this->courseid;
 
         $this->set_sql($select, $from, 's.archived != 1 AND s.status != 0 AND sc.status != 0', [
             'courseid' => $this->courseid,
