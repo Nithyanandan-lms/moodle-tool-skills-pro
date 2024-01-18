@@ -51,4 +51,21 @@ class behat_skilladdon_activityskills extends behat_base {
         $this->execute("behat_general::i_click_on", ["Save changes", "button"]);
     }
 
+    /**
+     * Set the student view to complete the activity condition.
+     * @Given I set the student view to complete the activity condition
+     */
+    public function i_set_the_student_view_to_complete_the_activity_conditiony() {
+        global $CFG;
+
+        if ($CFG->branch == "403") {
+            $this->execute('behat_forms::i_set_the_field_to', ['id_completion_2', '2']);
+            $this->execute('behat_forms::i_set_the_field_to', ['completionview', '1']);
+        } else {
+            $this->execute('behat_forms::i_set_the_field_to',
+            ['Completion tracking', 'Show activity as complete when conditions are met']);
+            $this->execute('behat_forms::i_set_the_field_to', ['completionview', '1']);
+        }
+    }
+
 }

@@ -145,9 +145,8 @@ Feature: Allocate skill points to the users based on activity completion
     Then I should see "Points - 20" in the "begineer" "table_row"
     And I am on the "Test page1" "page activity" page
     And I navigate to "Settings" in current page administration
-    And I set the following fields to these values:
-      | completion  | 2 |
-      | completionview   | 1 |
+    And I expand all fieldsets
+    And I set the student view to complete the activity condition
     And I press "Save and return to course"
     And I am on the "student1" "user > profile" page
     And I should see "Earned: 0"
@@ -365,9 +364,8 @@ Feature: Allocate skill points to the users based on activity completion
     Then I should see "Force level - begineer" in the "expert" "table_row"
     And I am on the "Test page1" "page activity" page
     And I navigate to "Settings" in current page administration
-    And I set the following fields to these values:
-      | completion  | 2 |
-      | completionview   | 1 |
+    And I expand all fieldsets
+    And I set the student view to complete the activity condition
     And I press "Save and return to course"
     And I log out
     And I am on the "student1" "user > profile" page logged in as student1
