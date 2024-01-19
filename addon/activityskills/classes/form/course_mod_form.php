@@ -204,7 +204,7 @@ class course_mod_form extends \core_form\dynamic_form {
         $options = [
             skills::COMPLETIONNOTHING => get_string('completionnothing', 'tool_skills'),
             skills::COMPLETIONPOINTS => get_string('completionpoints', 'tool_skills'),
-            skills::COMPLETIONPOINTSGRADE => get_string('completionpointsgrade', 'skilladdon_activityskills'),
+            skills::COMPLETIONPOINTSGRADE => get_string('completionpointsgrade', 'tool_skills'),
             skills::COMPLETIONSETLEVEL => get_string('completionsetlevel', 'tool_skills'),
             skills::COMPLETIONFORCELEVEL => get_string('completionforcelevel', 'tool_skills'),
         ];

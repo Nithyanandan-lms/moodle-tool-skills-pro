@@ -133,7 +133,7 @@ class skills_user_stats extends base {
         ))
         ->set_is_sortable(true)
         ->add_joins($this->get_joins())
-        ->add_field("{$userpoints}.points")
+        ->add_field("{$userpoints}.timemodified")
         ->add_callback(static function ($value, $row): string {
             return $value ? userdate($value, get_string('strftimedatetime', 'langconfig')) : '-';
         });
