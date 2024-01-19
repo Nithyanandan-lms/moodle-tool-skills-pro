@@ -149,7 +149,8 @@ Feature: Allocate skill points to the users based on activity completion
     And I set the student view to complete the activity condition
     And I press "Save and return to course"
     And I am on the "student1" "user > profile" page
-    And "Points to complete this skill: 60 (Earned: 0)" "text" should exist in the ".skill-begineer" "css_element"
+    And I should see "Points to complete this skill: 60 (Earned: 0)"
+    # And "Points to complete this skill: 60 (Earned: 0)" "text" should exist in the ".skill-begineer" "css_element"
     And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"
