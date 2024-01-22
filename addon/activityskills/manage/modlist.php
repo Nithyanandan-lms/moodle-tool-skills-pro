@@ -46,7 +46,7 @@ $context = \context_module::instance($cm->id);
 // Login check required.
 require_login();
 // Access checks.
-require_capability('tool/skills:managecourseskills', $context);
+require_capability('tool/skills:managecourseskillslist', $context);
 
 // Prepare the page (to make sure that all necessary information is already set even if we just handle the actions as a start).
 $PAGE->set_context($context);

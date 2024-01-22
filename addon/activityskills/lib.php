@@ -34,7 +34,7 @@
 function skilladdon_activityskills_extend_navigation_course(navigation_node $navigation, stdClass $course, $context) {
     global $PAGE;
     // Add the manage skills page to the secondary navigation on the mod page.
-    if ($PAGE->context->contextlevel == CONTEXT_MODULE && has_capability('tool/skills:managecourseskills', $context)) {
+    if ($PAGE->context->contextlevel == CONTEXT_MODULE && has_capability('tool/skills:managecourseskillslist', $context)) {
 
         $content = '';
         $id = $context->instanceid;

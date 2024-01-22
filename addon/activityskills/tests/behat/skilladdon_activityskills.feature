@@ -49,21 +49,21 @@ Feature: Allocate skill points to the users based on activity completion
     And I set the field "Test page2" to "1"
     And I press "Save changes"
     And I create skill with the following fields to these values:
-      | Skill name       | Begineer |
-      | Key              | begineer |
+      | Skill name       | Beginner |
+      | Key              | beginner |
       | Number of levels | 2        |
-      | Level #0 name    | begineer |
+      | Level #0 name    | beginner |
       | Level #0 point   | 10       |
       | Level #1 name    | Level 1  |
       | Level #1 point   | 20       |
       | Level #2 name    | Level 2  |
       | Level #2 point   | 30       |
-    And ".skill-item-actions .toolskills-status-switch.action-hide" "css_element" should exist in the "begineer" "table_row"
+    And ".skill-item-actions .toolskills-status-switch.action-hide" "css_element" should exist in the "beginner" "table_row"
     And I create skill with the following fields to these values:
       | Skill name       | Competence |
       | Key              | competence |
       | Number of levels | 2          |
-      | Level #0 name    | begineer   |
+      | Level #0 name    | beginner   |
       | Level #0 point   | 10         |
       | Level #1 name    | Level 1    |
       | Level #1 point   | 20         |
@@ -74,7 +74,7 @@ Feature: Allocate skill points to the users based on activity completion
       | Skill name       | Expert     |
       | Key              | expert     |
       | Number of levels | 2          |
-      | Level #0 name    | begineer   |
+      | Level #0 name    | beginner   |
       | Level #0 point   | 10         |
       | Level #1 name    | Level 1    |
       | Level #1 point   | 20         |
@@ -82,7 +82,7 @@ Feature: Allocate skill points to the users based on activity completion
       | Level #2 point   | 30         |
     And ".skill-item-actions .toolskills-status-switch.action-hide" "css_element" should exist in the "expert" "table_row"
     And I navigate to "Course 1" course skills
-    And I click on ".skill-course-actions .action-edit" "css_element" in the "begineer" "table_row"
+    And I click on ".skill-course-actions .action-edit" "css_element" in the "beginner" "table_row"
     And I set the following fields to these values:
       | Status                 | Enabled  |
       | Upon course completion | Points   |
@@ -101,7 +101,7 @@ Feature: Allocate skill points to the users based on activity completion
       | Points                 | 200      |
     And I press "Save changes"
     And I navigate to "Course 2" course skills
-    And I click on ".skill-course-actions .action-edit" "css_element" in the "begineer" "table_row"
+    And I click on ".skill-course-actions .action-edit" "css_element" in the "beginner" "table_row"
     And I set the following fields to these values:
       | Status                 | Enabled  |
       | Upon course completion | Points   |
@@ -126,42 +126,44 @@ Feature: Allocate skill points to the users based on activity completion
     Given I am on the "Test page1" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Points |
       | Points                   | 30     |
     And I press "Save changes"
-    Then I should see "Points - 30" in the "begineer" "table_row"
+    Then I should see "Points - 30" in the "beginner" "table_row"
     And I am on the "Test page2" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer"
+    And I should see "Beginner"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Points |
       | Points                   | 20     |
     And I press "Save changes"
-    Then I should see "Points - 20" in the "begineer" "table_row"
+    Then I should see "Points - 20" in the "beginner" "table_row"
     And I am on the "Test page1" "page activity" page
     And I navigate to "Settings" in current page administration
     And I expand all fieldsets
     And I set the student view to complete the activity condition
     And I press "Save and return to course"
+    And I log out
+    And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    And "Points to complete this skill: 60 (Earned: 0)" "text" should exist in the ".skill-begineer" "css_element"
+    And I should see "Points to complete this skill: 60 (Earned: 0)" in the ".skill-beginner" "css_element"
     And I am on "Course 1" course homepage
     And I am on the "Test page1" "page activity" page
     And I should see "Done: View"
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 30"
+    And I should see "Earned: 30" in the ".page1" "css_element"
     And I log out
     And I am on the "Course 2" course page logged in as student1
     And I am on the "Test page2" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Earned: 200"
+    Then I should see "Earned: 20" in the ".page2" "css_element"
     And I wait "5" seconds
 
   #2. Assign Negative points to the user during an activity
@@ -170,13 +172,13 @@ Feature: Allocate skill points to the users based on activity completion
     Given I am on the "Test page1" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Points |
       | Points                   | -50    |
     And I press "Save changes"
-    Then I should see "Points - -50" in the "begineer" "table_row"
+    Then I should see "Points - -50" in the "beginner" "table_row"
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
@@ -185,7 +187,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Earned: -50"
+    Then I should see "Earned: -50" in the ".page1" "css_element"
 
   #3. Elevate the user's level upon completing an activity
   @javascript
@@ -193,48 +195,52 @@ Feature: Allocate skill points to the users based on activity completion
     Given I am on the "Test page1" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Set level |
-      | Level                    | begineer  |
+      | Level                    | beginner  |
     And I press "Save changes"
-    Then I should see "Set level - begineer" in the "begineer" "table_row"
+    Then I should see "Set level - beginner" in the "beginner" "table_row"
     And I am on the "Quiz1" "quiz activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Set level |
       | Level                    | Level 1  |
     And I press "Save changes"
-    Then I should see "Set level - begineer" in the "begineer" "table_row"
+    Then I should see "Set level - Level 1" in the "beginner" "table_row"
     And I am on the "Test page4" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Set level |
       | Level                    | Level 2  |
     And I press "Save changes"
-    Then I should see "Set level - begineer" in the "begineer" "table_row"
+    Then I should see "Set level - Level 2" in the "beginner" "table_row"
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 0"
+    And I should see "Points to complete this skill: 60 (Earned: 0)" in the ".skill-beginner" "css_element"
     And I am on the "Test page1" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "Quiz1" "quiz activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
+    And I am on the "student1" "user > profile" page
+    And I wait "5" seconds
+    Then I should see "Earned: 20" in the ".skills-points-Quiz1" "css_element"
     And I am on the "Test page4" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Earned: 30"
+    And I wait "5" seconds
+    Then I should see "Earned: 30" in the ".page4" "css_element"
 
   #4. Force the user to change their level
   @javascript
@@ -242,47 +248,47 @@ Feature: Allocate skill points to the users based on activity completion
     Given I am on the "Test page1" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Set level |
       | Level                    | Level 1   |
     And I press "Save changes"
-    Then I should see "Set level - Level 1" in the "begineer" "table_row"
+    Then I should see "Set level - Level 1" in the "beginner" "table_row"
     And I am on the "Quiz1" "quiz activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Set level |
       | Level                    | Level 2   |
     And I press "Save changes"
-    Then I should see "Set level - Level 2" in the "begineer" "table_row"
+    Then I should see "Set level - Level 2" in the "beginner" "table_row"
     And I am on the "Test page4" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Force level |
-      | Level                    | begineer    |
+      | Level                    | beginner    |
     And I press "Save changes"
-    Then I should see "Force level - begineer" in the "begineer" "table_row"
+    Then I should see "Force level - beginner" in the "beginner" "table_row"
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 0"
+    And I should see "Earned: 0" in the ".skill-beginner" "css_element"
     And I am on the "Test page1" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 20"
+    And I should see "Earned: 20" in the ".page1" "css_element"
     And I am on the "Quiz1" "quiz activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 30"
+    And I should see "Earned: 30" in the ".skills-points-Quiz1" "css_element"
     And I am on the "Test page4" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
@@ -295,12 +301,12 @@ Feature: Allocate skill points to the users based on activity completion
     Given I am on the "Assign1" "assign activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
+    And I should see "Beginner" in the "mod_skills_list" "table"
     And I click on ".skill-course-actions .action-edit" "css_element"
     And I set the following fields to these values:
       | Upon activity completion | Points by grade |
     And I press "Save changes"
-    Then I should see "Points by grade" in the "begineer" "table_row"
+    Then I should see "Points by grade" in the "beginner" "table_row"
     When I am on the "Assign1" "assign activity" page
     And I navigate to "Settings" in current page administration
     And I set the following fields to these values:
@@ -309,12 +315,12 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 0"
+    And I should see "Earned: 0" in the ".skill-beginner" "css_element"
     And I am on the "Assign1" "assign activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 0"
+    And I should see "Earned: 0" in the ".skills-points-Assign1" "css_element"
     And I log out
     When I am on the "Assign1" "assign activity" page logged in as admin
     And I follow "View all submissions"
@@ -326,7 +332,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I log out
     And I am on the "Course 1" course page logged in as student1
     And I am on the "student1" "user > profile" page
-    And I should see "Earned: 60"
+    And I should see "Earned: 60" in the ".skills-points-Assign1" "css_element"
     And I wait "10" seconds
 
   #6. Calculate the average points for 3 different skill in a single activity
@@ -335,14 +341,14 @@ Feature: Allocate skill points to the users based on activity completion
     Given I am on the "Test page1" "page activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
-    And I should see "Begineer" in the "mod_skills_list" "table"
-    And I click on ".skill-course-actions .action-edit" "css_element" in the "begineer" "table_row"
+    And I should see "Beginner" in the "mod_skills_list" "table"
+    And I click on ".skill-course-actions .action-edit" "css_element" in the "beginner" "table_row"
     And I set the following fields to these values:
       | Upon activity completion | Points |
       | Points                   | 5      |
     And I press "Save changes"
-    Then I should see "Points - 5" in the "begineer" "table_row"
-    And I am on the "Test page2" "page activity" page
+    Then I should see "Points - 5" in the "beginner" "table_row"
+    And I am on the "Quiz1" "quiz activity" page
     And I click on "More" "link" in the ".secondary-navigation" "css_element"
     And I click on "Manage skills" "link"
     And I should see "Competence"
@@ -359,29 +365,25 @@ Feature: Allocate skill points to the users based on activity completion
     And I click on ".skill-course-actions .action-edit" "css_element" in the "expert" "table_row"
     And I set the following fields to these values:
       | Upon activity completion | Force level  |
-      | Level                    | begineer     |
+      | Level                    | beginner     |
     And I press "Save changes"
-    Then I should see "Force level - begineer" in the "expert" "table_row"
-    And I am on the "Test page1" "page activity" page
-    And I navigate to "Settings" in current page administration
-    And I expand all fieldsets
-    And I set the student view to complete the activity condition
-    And I press "Save and return to course"
+    Then I should see "Force level - beginner" in the "expert" "table_row"
     And I log out
     And I am on the "student1" "user > profile" page logged in as student1
-    And I should see "Earned: 0"
+    And I should see "Points to complete this skill: 60 (Earned: 0)" in the ".skill-beginner" "css_element"
     And I am on the "Test page1" "page activity" page
-    And I should see "Done: View"
-    And I am on the "student1" "user > profile" page
-    And I should see "Earned: 5"
-    And I am on the "Test page2" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Earned: 30"
+    And I should see "Earned: 5" in the ".page1" "css_element"
+    And I am on the "Quiz1" "quiz activity" page
+    And I press "Mark as done"
+    And I wait until "Done" "button" exists
+    And I am on the "student1" "user > profile" page
+    Then I should see "Earned: 30" in the ".skills-points-Quiz1" "css_element"
     And I am on the "Test page4" "page activity" page
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Earned: 10"
+    Then I should see "Earned: 10" in the ".page4" "css_element"
     And I wait "10" seconds

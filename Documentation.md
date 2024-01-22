@@ -169,7 +169,7 @@ Select a color to represent the level. This will override the general skill colo
 Please upload an image that represents the level of skill. This will be used for visualization.
 
 
-# Course settings
+# Course skills settings
 
 To access the skills list and assign them to a course, utilize the "Manage Skills" link found in the secondary navigation of the course. Within this interface, you have the option to grant a precise number of points or set the points required to reach a specific skill level.
 
@@ -189,7 +189,7 @@ Simply employ the "Edit" icon in the table to activate the skill for the course 
 
    ***Nothing:*** Choose 'Nothing' to use activity completion, instead of course completion, for awarding points.
 
-   ***Add points:*** Select 'Add points' to have the specified number of skill points added upon course completion. Please note that using negative numbers will result in a deduction of points.
+   ***Points:*** Select 'Add points' to have the specified number of skill points added upon course completion. Please note that using negative numbers will result in a deduction of points.
 
    ***Set level:*** Choose 'Set level' to have the completion of the course add the necessary number of points required to reach that level, unless the student already has more points.
 
@@ -202,3 +202,38 @@ Simply employ the "Edit" icon in the table to activate the skill for the course 
    ***Example:***
    Entering "50" will add 50 points.
    Entering "-20" will deduct 20 points.
+
+4. **Level:**
+
+   Choose the desired skill level for this course. Upon completion, the student will receive the corresponding number of points required to achieve the selected level.
+
+
+# Activity skills settings
+
+To access the skills list and assign them to a activity, utilize the "Manage Skills" link found in the secondary navigation of the activity. Within this interface, you have the option to grant a precise number of points or set the points required to reach a specific skill level.
+
+1. **Upon course completion:**
+
+   Upon course completion, you can choose from several options to determine what should happen at the end of the course.
+
+   ***Nothing:*** Choose 'Nothing' to use activity completion, instead of course completion, for awarding points.
+
+   ***Points:*** Select 'Points' to have the specified number of skill points added upon course completion. Please note that using negative numbers will result in a deduction of points.
+
+   ***Points by grade:*** Choose 'Points by grade' to allocate the specified number of skill points based on the completed activity and corresponding grade upon course completion.
+
+   ***Set level:*** Choose 'Set level' to have the completion of the course add the necessary number of points required to reach that level, unless the student already has more points.
+
+   ***Force level:*** Select 'Force level' to set the number of points to the amount required for that level upon course completion, regardless of the student's previous level/points. This may result in students having fewer points than before.
+
+2. **Points:**
+
+   Enter the number of skill points to be awarded or deducted. Use a positive number to add points and a negative number to deduct points.
+
+   ***Example:***
+   Entering "50" will add 50 points.
+   Entering "-20" will deduct 20 points.
+
+3. **Level:**
+
+   Choose the desired skill level for this course. Upon completion, the student will receive the corresponding number of points required to achieve the selected level.

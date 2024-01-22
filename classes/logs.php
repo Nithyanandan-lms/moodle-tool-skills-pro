@@ -63,23 +63,18 @@ class logs {
     public function add(int $skillid, int $userid, int $points, int $methodid, string $method, int $status=1) {
         global $DB;
 
-        if ($record = $DB->get_record('tool_skills_awardlogs', ['userid' => $userid,
-            'method' => $method,
-            'methodid' => $methodid,
-            ])) {
-            $record->points  = $points;
-            $DB->update_record('tool_skills_awardlogs', $record);
-        } else {
-            $record = [
-                'skill'       => $skillid,
-                'userid'      => $userid,
-                'points'      => $points,
-                'methodid'    => $methodid,
-                'method'      => $method,
-                'status'      => $status,
-                'timecreated' => time(),
-            ];
-            return $DB->insert_record('tool_skills_awardlogs', $record);
+        if (!$DB->record_exists('tool_skills_awardlogs', ['skill' => $skillid, 'userid' => $userid,
+            'method' => $method, 'methodid' => $methodid, ])) {
+                $record = [
+                    'skill'       => $skillid,
+                    'userid'      => $userid,
+                    'points'      => $points,
+                    'methodid'    => $methodid,
+                    'method'      => $method,
+                    'status'      => $status,
+                    'timecreated' => time(),
+                ];
+                return $DB->insert_record('tool_skills_awardlogs', $record);
         }
     }
 
