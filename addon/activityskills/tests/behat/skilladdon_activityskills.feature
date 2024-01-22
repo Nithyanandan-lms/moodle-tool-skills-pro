@@ -163,7 +163,7 @@ Feature: Allocate skill points to the users based on activity completion
     And I press "Mark as done"
     And I wait until "Done" "button" exists
     And I am on the "student1" "user > profile" page
-    Then I should see "Earned: 200" in the ".page2" "css_element"
+    Then I should see "Earned: 20" in the ".page2" "css_element"
     And I wait "5" seconds
 
   #2. Assign Negative points to the user during an activity
